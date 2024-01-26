@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Extendle",
+  "version": "0.0.0",
+  "description": "Enhance your various wordle experiences",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.nytimes.com/games/wordle*"
+      ],
+      "js": ["content_script.js"]
+    }
+  ]
+}
