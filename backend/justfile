@@ -1,0 +1,12 @@
+build-image:
+	docker build . -t europe-west4-docker.pkg.dev/rw-dev-tf/extendle/backend
+
+push-image: build-image
+	docker push europe-west4-docker.pkg.dev/rw-dev-tf/extendle/backend
+
+deploy-image: push-image
+	gcloud run deploy extendle-backend \
+		--image=europe-west4-docker.pkg.dev/rw-dev-tf/extendle/backend:latest \
+		--region=europe-west4 \
+		--project=rw-dev-tf
+	# gcloud run services update-traffic extendle-backend --to-latest --region=europe-west4

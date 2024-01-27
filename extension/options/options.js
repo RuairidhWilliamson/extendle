@@ -56,19 +56,20 @@ browser.storage.sync.get("active_list").then(activeList => {
     row.append(icon, label);
     return row;
   };
-
-  activeList.forEach(game_id => {
-    const game = GAMES.find(g => g.id === game_id);
-    if (game === undefined) {
-      return;
-    }
-    activeListElem.append(createRow(game));
-  });
-  GAMES.forEach(game => {
-    if (!activeList.includes(game.id)) {
-      inactiveListElem.append(createRow(game));
-    }
-  });
+  GAMES_PROMISE.then(games => {
+    activeList.forEach(game_id => {
+      const game = games.games.find(g => g.id === game_id);
+      if (game === undefined) {
+        return;
+      }
+      activeListElem.append(createRow(game));
+    });
+    games.games.forEach(game => {
+      if (!activeList.includes(game.id)) {
+        inactiveListElem.append(createRow(game));
+      }
+    });
+  })
 });
 
 const openAllBtn = document.getElementById("open-all");

@@ -1,4 +1,3 @@
-
 const openAllBtn = document.getElementById("open-all");
 const settingsBtn = document.getElementById("settings");
 
