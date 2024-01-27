@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Extendle",
   "version": "0.0.0",
-  "description": "Enhance your various wordle experiences",
+  "description": "Enhance your various wordle like experiences",
 
   "icons": {
     "48": "icons/border-48.png"
@@ -12,12 +12,18 @@
     "default_popup": "popup/index.html"
   },
 
-  "content_scripts": [
-    {
-      "matches": [
-        "*://*.nytimes.com/games/wordle*"
-      ],
-      "js": ["content_script.js"]
+  "options_ui": {
+    "page": "options/index.html",
+    "open_in_tab": true
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "extendle@rtaw.co.uk"
     }
+  },
+
+  "permissions": [
+    "storage"
   ]
 }

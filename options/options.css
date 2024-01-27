@@ -1,0 +1,35 @@
+html {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.lists {
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+}
+
+.list-container {
+  border: solid #1e1e1e;
+  padding: 0.5em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 20em;
+  height: 500px;
+}
+
+.game-row {
+  display: flex;
+  gap: 0.5em;
+  background-color: #eee;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.dragging {
+  background-color: #ccc;
+}
