@@ -109,6 +109,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Quordle",
             url: "https://www.merriam-webster.com/games/quordle/",
         },
+        Game {
+            id: "redactle",
+            label: "Redactle",
+            url: "https://redactle.net/",
+        },
     ],
 };
 
