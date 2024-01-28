@@ -11,6 +11,7 @@ html {
 .list-container {
   border: solid #1e1e1e;
   padding: 0.5em;
+  user-select: none;
 }
 
 .list {
@@ -18,7 +19,7 @@ html {
   flex-direction: column;
   gap: 5px;
   width: 20em;
-  height: 500px;
+  min-height: 500px;
 }
 
 .game-row {
@@ -30,6 +31,10 @@ html {
   border-radius: 2px;
 }
 
+.game-row:hover {
+  background-color: #ddd;
+}
+
 .dragging {
-  background-color: #ccc;
+  background-color: #bbb;
 }
