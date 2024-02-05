@@ -114,6 +114,46 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Redactle",
             url: "https://redactle.net/",
         },
+        Game {
+            id: "globle",
+            label: "Globle",
+            url: "https://globle.org/",
+        },
+        Game {
+            id: "feudle",
+            label: "Feudle",
+            url: "https://googlefeud.com/feudle/",
+        },
+        Game {
+            id: "minecraftle",
+            label: "Minecraftle",
+            url: "https://minecraftle.zachmanson.com/",
+        },
+        Game {
+            id: "errordle",
+            label: "Errordle",
+            url: "https://bluej.org/errordle/",
+        },
+        Game {
+            id: "myrtle",
+            label: "Myrtle",
+            url: "https://myrtle.harrypotterwordle.com/",
+        },
+        Game {
+            id: "riddlele",
+            label: "Riddlele",
+            url: "https://phonenumble.com/riddlele/",
+        },
+        Game {
+            id: "tuble",
+            label: "Tuble",
+            url: "https://tuble.co.uk/",
+        },
+        Game {
+            id: "wordosis",
+            label: "Wordosis",
+            url: "https://www.medpagetoday.com/wordosis",
+        },
     ],
 };
 
