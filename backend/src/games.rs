@@ -154,6 +154,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Wordosis",
             url: "https://www.medpagetoday.com/wordosis",
         },
+        Game {
+            id: "whentaken",
+            label: "WhenTaken",
+            url: "https://whentaken.com/",
+        },
     ],
 };
 
