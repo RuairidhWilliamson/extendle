@@ -159,6 +159,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "WhenTaken",
             url: "https://whentaken.com/",
         },
+        Game {
+            id: "connections",
+            label: "Connections",
+            url: "https://www.nytimes.com/connections",
+        },
     ],
 };
 
