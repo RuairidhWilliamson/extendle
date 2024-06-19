@@ -164,6 +164,16 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Connections",
             url: "https://www.nytimes.com/connections",
         },
+        Game {
+            id: "faces",
+            label: "Faces",
+            url: "https://faces.wtf/",
+        },
+        Game {
+            id: "deciper",
+            label: "Decipher",
+            url: "https://decipher.wtf/",
+        },
     ],
 };
 
