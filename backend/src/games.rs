@@ -174,6 +174,16 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Decipher",
             url: "https://decipher.wtf/",
         },
+        Game {
+            id: "horsle",
+            label: "Horsle",
+            url: "https://horsle.glitch.me/",
+        },
+        Game {
+            id: "minute_cryptic",
+            label: "Minute Cryptic",
+            url: "https://www.minutecryptic.com/",
+        },
     ],
 };
 
