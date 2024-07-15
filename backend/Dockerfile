@@ -1,13 +1,13 @@
-FROM docker.io/rust:alpine as base
+FROM docker.io/rust:alpine AS base
 RUN apk add gcc g++ git pkgconfig curl
 RUN cargo install cargo-chef --locked
 WORKDIR /extendle
 
-FROM base as planner
+FROM base AS planner
 COPY . .
 RUN cargo chef prepare
 
-FROM base as builder
+FROM base AS builder
 COPY --from=planner /extendle/recipe.json recipe.json
 
 RUN cargo chef cook --release
