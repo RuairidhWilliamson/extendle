@@ -184,6 +184,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Minute Cryptic",
             url: "https://www.minutecryptic.com/",
         },
+        Game {
+            id: "leetcode",
+            label: "Leetcode",
+            url: "https://leetcode.com/problemset/",
+        },
     ],
 };
 
