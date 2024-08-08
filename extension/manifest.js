@@ -1,7 +1,7 @@
 const buildManifest = (mode) => ({
   manifest_version: 3,
   name: "Extendle",
-  version: "0.0.0",
+  version: "0.0.1",
   description: "Manage your favourite wordle variants",
 
   icons: {
@@ -13,7 +13,7 @@ const buildManifest = (mode) => ({
 
   background: mode === "firefox" ? {
     scripts: ["background.js"],
-  }: {
+  } : {
     service_worker: "background.js",
   },
 
@@ -34,7 +34,7 @@ const buildManifest = (mode) => ({
     gecko: {
       id: "extendle@rtaw.co.uk"
     }
-  }: undefined,
+  } : undefined,
 });
 
 const mode = process.argv[2];
