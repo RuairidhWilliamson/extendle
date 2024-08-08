@@ -1,7 +1,7 @@
 const brx = chrome;
-const defaultActiveList = [
-  "wordle",
-];
+const defaultActiveList = ["wordle"];
+const defaultRandomList: Array<string> = [];
+const defaultRandomCount: number = 2;
 
 interface Game {
   id: string,
@@ -25,9 +25,31 @@ const getActiveList = async () => {
   return activeList;
 };
 
-const openActive = async () => {
-  const stored = await brx.storage.sync.get("active_list");
-  const activeList: Array<string> = stored.active_list || defaultActiveList;
+const getRandomList = async () => {
+  const stored = await brx.storage.sync.get("random_list");
+  const randomList: Array<string> = stored.random_list || defaultRandomList;
+  return randomList
+};
+
+const getRandomCount = async () => {
+  const stored = await brx.storage.sync.get("random_count");
+  const randomList: number = stored.random_count || defaultRandomCount;
+  return randomList
+};
+
+const openAll = async () => {
+  const activeList: Array<string> = await getActiveList();
+  const randomList: Array<string> = await getRandomList();
+  const randomCount: number = await getRandomCount();
+
+  const chosenRandomList: Array<string> = [];
+  for (let i = 0; i < randomCount && randomList.length > 0; i++) {
+    const index = Math.floor(Math.random() * randomList.length);
+    const [element] = randomList.splice(index, 1);
+    chosenRandomList.push(element);
+  }
+
+  const combinedList = activeList.concat(chosenRandomList);
 
   const createOptions: browser.tabs._CreateCreateProperties = {
     active: false,
@@ -39,7 +61,7 @@ const openActive = async () => {
     createOptions.discarded = true;
   }
   const games = await games_promise;
-  activeList.forEach(id => {
+  combinedList.forEach(id => {
     const game = games.games.find(g => g.id === id);
     if (game === undefined) {
       return;
@@ -53,13 +75,24 @@ const openActive = async () => {
 };
 
 const init = async () => {
-
   const activeList = await getActiveList();
+  const randomList = await getRandomList();
+  const randomCount = await getRandomCount();
   const activeListElem = document.getElementById("active-list")!;
+  const randomListElem = document.getElementById("random-list")!;
   const inactiveListElem = document.getElementById("inactive-list")!;
+  const randomCountElem = document.getElementById("random-list-count")!;
+
+  randomCountElem.nodeValue = randomCount.toString();
+  randomCountElem.addEventListener("change", (ev) => {
+    const random_count = parseInt((<HTMLElement>ev.target).nodeValue!);
+    brx.storage.sync.set({
+      "random_count": random_count,
+    });
+  });
 
   const openAllBtn = document.getElementById("open-all")!;
-  openAllBtn.addEventListener("click", openActive);
+  openAllBtn.addEventListener("click", openAll);
 
   let draggingItem: HTMLElement | null = null;
 
@@ -76,7 +109,7 @@ const init = async () => {
     list.append(draggingItem!);
   };
 
-  [activeListElem, inactiveListElem].forEach(list => {
+  [activeListElem, randomListElem, inactiveListElem].forEach(list => {
     list.addEventListener("dragover", ev => dragUpdate(list, ev));
     list.addEventListener("dragenter", ev => dragUpdate(list, ev));
   });
@@ -95,13 +128,19 @@ const init = async () => {
     row.addEventListener("dragend", (ev: DragEvent) => {
       (<HTMLElement>ev.target).classList.remove("dragging");
       draggingItem = null;
-      let newActiveList = [];
+      const newActiveList = [];
+      const newRandomList = [];
       for (const child of activeListElem.children) {
         const game_id = child.getAttribute("gameid");
         newActiveList.push(game_id);
       }
+      for (const child of randomListElem.children) {
+        const game_id = child.getAttribute("gameid");
+        newRandomList.push(game_id);
+      }
       brx.storage.sync.set({
         "active_list": newActiveList,
+        "random_list": newRandomList,
       });
     });
     const icon = document.createElement("img");
@@ -118,6 +157,13 @@ const init = async () => {
       return;
     }
     activeListElem.append(createRow(game));
+  });
+  randomList.forEach(game_id => {
+    const game = games.games.find(g => g.id === game_id);
+    if (game === undefined) {
+      return;
+    }
+    randomListElem.append(createRow(game));
   });
   games.games.forEach(game => {
     if (!activeList.includes(game.id)) {

@@ -38,3 +38,10 @@ html {
 .dragging {
   background-color: #bbb;
 }
+
+.list-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
