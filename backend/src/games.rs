@@ -189,6 +189,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Leetcode",
             url: "https://leetcode.com/problemset/",
         },
+        Game {
+            id: "lichess",
+            label: "Lichess Puzzle",
+            url: "https://lichess.org/training/daily",
+        },
     ],
 };
 
