@@ -19,37 +19,48 @@ const games_promise = (async () => {
   return games_list;
 })();
 
-const getActiveList = async () => {
-  const stored = await brx.storage.sync.get("active_list");
-  const activeList: Array<string> = stored.active_list || defaultActiveList;
-  return activeList;
+interface Settings {
+  activeList: Array<string>,
+  randomList: Array<string>,
+  randomCount: number,
 };
 
-const getRandomList = async () => {
-  const stored = await brx.storage.sync.get("random_list");
-  const randomList: Array<string> = stored.random_list || defaultRandomList;
-  return randomList
+const defaultSettings: Settings = {
+  activeList: ["wordle"],
+  randomList: [],
+  randomCount: 2,
 };
 
-const getRandomCount = async () => {
-  const stored = await brx.storage.sync.get("random_count");
-  const randomList: number = stored.random_count || defaultRandomCount;
-  return randomList
+const getSettings = async (): Promise<Settings> => {
+  const settings = (await brx.storage.sync.get("settings")).settings;
+  if (settings.activeList === null) {
+    settings.activeList = defaultSettings.activeList;
+  }
+  if (settings.randomList === null) {
+    settings.randomList = defaultSettings.randomList;
+  }
+  if (settings.randomCount === null) {
+    settings.randomCount = defaultSettings.randomCount;
+  }
+  console.log(settings);
+  return settings;
+};
+
+const saveSettings = async (settings: Settings) => {
+  await brx.storage.sync.set({ "settings": settings });
 };
 
 const openAll = async () => {
-  const activeList: Array<string> = await getActiveList();
-  const randomList: Array<string> = await getRandomList();
-  const randomCount: number = await getRandomCount();
+  const settings: Settings = await getSettings();
 
   const chosenRandomList: Array<string> = [];
-  for (let i = 0; i < randomCount && randomList.length > 0; i++) {
-    const index = Math.floor(Math.random() * randomList.length);
-    const [element] = randomList.splice(index, 1);
+  for (let i = 0; i < settings.randomCount && settings.randomList.length > 0; i++) {
+    const index = Math.floor(Math.random() * settings.randomList.length);
+    const [element] = settings.randomList.splice(index, 1);
     chosenRandomList.push(element);
   }
 
-  const combinedList = activeList.concat(chosenRandomList);
+  const combinedList = settings.activeList.concat(chosenRandomList);
 
   const createOptions: browser.tabs._CreateCreateProperties = {
     active: false,
@@ -75,20 +86,17 @@ const openAll = async () => {
 };
 
 const init = async () => {
-  const activeList = await getActiveList();
-  const randomList = await getRandomList();
-  const randomCount = await getRandomCount();
+  const settings = await getSettings();
   const activeListElem = document.getElementById("active-list")!;
   const randomListElem = document.getElementById("random-list")!;
   const inactiveListElem = document.getElementById("inactive-list")!;
   const randomCountElem = document.getElementById("random-list-count")!;
 
-  randomCountElem.nodeValue = randomCount.toString();
+  randomCountElem.nodeValue = settings.randomCount.toString();
   randomCountElem.addEventListener("change", (ev) => {
-    const random_count = parseInt((<HTMLElement>ev.target).nodeValue!);
-    brx.storage.sync.set({
-      "random_count": random_count,
-    });
+    const random_count = (<HTMLInputElement>ev.target).valueAsNumber;
+    settings.randomCount = random_count;
+    saveSettings(settings);
   });
 
   const openAllBtn = document.getElementById("open-all")!;
@@ -132,16 +140,15 @@ const init = async () => {
       const newRandomList = [];
       for (const child of activeListElem.children) {
         const game_id = child.getAttribute("gameid");
-        newActiveList.push(game_id);
+        newActiveList.push(game_id!);
       }
       for (const child of randomListElem.children) {
         const game_id = child.getAttribute("gameid");
-        newRandomList.push(game_id);
+        newRandomList.push(game_id!);
       }
-      brx.storage.sync.set({
-        "active_list": newActiveList,
-        "random_list": newRandomList,
-      });
+      settings.activeList = newActiveList;
+      settings.randomList = newRandomList;
+      saveSettings(settings);
     });
     const icon = document.createElement("img");
     icon.src = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + game.url;
@@ -151,14 +158,14 @@ const init = async () => {
     return row;
   };
   const games = await games_promise;
-  activeList.forEach(game_id => {
+  settings.activeList.forEach(game_id => {
     const game = games.games.find(g => g.id === game_id);
     if (game === undefined) {
       return;
     }
     activeListElem.append(createRow(game));
   });
-  randomList.forEach(game_id => {
+  settings.randomList.forEach(game_id => {
     const game = games.games.find(g => g.id === game_id);
     if (game === undefined) {
       return;
@@ -166,7 +173,7 @@ const init = async () => {
     randomListElem.append(createRow(game));
   });
   games.games.forEach(game => {
-    if (!activeList.includes(game.id)) {
+    if (!settings.activeList.includes(game.id) && !settings.randomList.includes(game.id)) {
       inactiveListElem.append(createRow(game));
     }
   });

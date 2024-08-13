@@ -19,7 +19,8 @@ html {
   flex-direction: column;
   gap: 5px;
   width: 20em;
-  min-height: 500px;
+  /* min-height: 500px; */
+  height: 100%;
 }
 
 .game-row {
