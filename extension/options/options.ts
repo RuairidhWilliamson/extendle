@@ -92,7 +92,7 @@ const init = async () => {
   const inactiveListElem = document.getElementById("inactive-list")!;
   const randomCountElem = document.getElementById("random-list-count")!;
 
-  randomCountElem.nodeValue = settings.randomCount.toString();
+  (<HTMLInputElement>randomCountElem).valueAsNumber = settings.randomCount;
   randomCountElem.addEventListener("change", (ev) => {
     const random_count = (<HTMLInputElement>ev.target).valueAsNumber;
     settings.randomCount = random_count;
