@@ -194,6 +194,21 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Lichess Puzzle",
             url: "https://lichess.org/training/daily",
         },
+        Game {
+            id: "factle",
+            label: "Factle",
+            url: "https://trivia.frontofficesports.com/factle",
+        },
+        Game {
+            id: "joined_words",
+            label: "Joined Words",
+            url: "https://jw-daily.web.app",
+        },
+        Game {
+            id: "boardle",
+            label: "Boardle",
+            url: "https://playboardle.com/",
+        },
     ],
 };
 
