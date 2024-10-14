@@ -197,7 +197,7 @@ pub const GAME_LIST: &GameList = &GameList {
         Game {
             id: "factle",
             label: "Factle",
-            url: "https://trivia.frontofficesports.com/factle",
+            url: "https://trivia.frontofficesports.com",
         },
         Game {
             id: "joined_words",
@@ -208,6 +208,16 @@ pub const GAME_LIST: &GameList = &GameList {
             id: "boardle",
             label: "Boardle",
             url: "https://playboardle.com/",
+        },
+        Game {
+            id: "imdb250",
+            label: "IMDB 250",
+            url: "https://250imdbguess.streamlit.app/",
+        },
+        Game {
+            id: "movie_to_movie",
+            label: "Movie to Movie",
+            url: "https://movietomovie.com",
         },
     ],
 };
