@@ -224,6 +224,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Geogrid",
             url: "https://www.geogridgame.com",
         },
+        Game {
+            id: "echo-chess",
+            label: "Echo Chess",
+            url: "https://echochess.com/game?game_mode=DAILY&level_type=CLASSIC",
+        },
     ],
 };
 
