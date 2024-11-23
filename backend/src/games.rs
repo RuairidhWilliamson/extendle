@@ -219,6 +219,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Movie to Movie",
             url: "https://movietomovie.com",
         },
+        Game {
+            id: "geogrid",
+            label: "Geogrid",
+            url: "https://www.geogridgame.com",
+        },
     ],
 };
 
