@@ -32,14 +32,14 @@ const defaultSettings: Settings = {
 };
 
 const getSettings = async (): Promise<Settings> => {
-  const settings = (await brx.storage.sync.get("settings")).settings;
-  if (settings.activeList === null) {
+  const settings = (await brx.storage.sync.get("settings")).settings || {};
+  if (!settings.activeList) {
     settings.activeList = defaultSettings.activeList;
   }
-  if (settings.randomList === null) {
+  if (!settings.randomList) {
     settings.randomList = defaultSettings.randomList;
   }
-  if (settings.randomCount === null) {
+  if (!settings.randomCount) {
     settings.randomCount = defaultSettings.randomCount;
   }
   console.log(settings);
