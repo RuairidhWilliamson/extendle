@@ -1,6 +1,6 @@
 {
   "name": "extendle",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "scripts": {
     "build": "tsc && mkdir -p dist/icons && cp icons/*.png dist/icons/ && cp options/index.html options/options.css dist/options/",

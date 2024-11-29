@@ -1,7 +1,7 @@
 const buildManifest = (mode) => ({
   manifest_version: 3,
   name: "Extendle",
-  version: "0.0.3",
+  version: "0.0.4",
   description: "Manage your favourite wordle variants",
 
   icons: {
