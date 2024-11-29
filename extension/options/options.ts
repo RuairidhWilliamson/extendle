@@ -125,7 +125,7 @@ const init = async () => {
   const createRow = (game: Game) => {
     const row = document.createElement("div");
     row.classList.add("game-row");
-    row.draggable = true;
+    row.draggable = false;
     row.setAttribute("gameid", game.id);
     row.addEventListener("dragstart", ev => {
       ev.dataTransfer!.setData("text/uri-list", game.url);
@@ -150,11 +150,26 @@ const init = async () => {
       settings.randomList = newRandomList;
       saveSettings(settings);
     });
+    const handle = document.createElement("div");
+    handle.classList.add("handle");
+    handle.addEventListener("mousedown", () => {
+      row.draggable = true;
+    });
+    handle.addEventListener("mouseup", () => {
+      row.draggable = false;
+    });
     const icon = document.createElement("img");
     icon.src = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + game.url;
     const label = document.createElement("a");
     label.innerText = game.label;
-    row.append(icon, label);
+    const openLink = document.createElement("a");
+    openLink.href = game.url;
+    openLink.target = "_blank";
+    openLink.classList.add("openlink");
+    const openIcon = document.createElement("i");
+    openIcon.classList.add("fa-solid", "fa-arrow-up-right-from-square");
+    openLink.append(openIcon);
+    row.append(handle, icon, label, openLink);
     return row;
   };
   const games = await games_promise;

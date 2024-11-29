@@ -1,15 +1,24 @@
 html {
   font-family: 'Courier New', Courier, monospace;
+  background-color: #ff7e81;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 72px;
+  color: #ffffff50;
 }
 
 .lists {
   display: flex;
   flex-direction: row;
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .list-container {
-  border: solid #1e1e1e;
+  border: solid #ffffff20;
   padding: 0.5em;
   user-select: none;
 }
@@ -26,14 +35,9 @@ html {
 .game-row {
   display: flex;
   gap: 0.5em;
-  background-color: #eee;
+  background-color: #ffffff20;
   padding: 0.5em;
-  cursor: pointer;
   border-radius: 2px;
-}
-
-.game-row:hover {
-  background-color: #ddd;
 }
 
 .dragging {
@@ -45,4 +49,43 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.handle {
+  width: 8px;
+  height: 100%;
+  background-color: #ffffff20;
+  cursor: move;
+}
+
+.openlink {
+  color: #fff;
+  margin-left: auto;
+}
+
+.openlink:hover {
+  color: #ddd;
+}
+
+button {
+  background-color: #ffffff20;
+  padding: 0.5em;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: #ffffff50;
+}
+
+input {
+  background-color: #ffffff20;
+  padding: 0.5em;
+  border-radius: 2px;
+  border: none;
+  color: inherit;
+  font-family: inherit;
 }

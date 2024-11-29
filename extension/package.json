@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "description": "",
   "scripts": {
-    "build": "npx tsc && mkdir -p dist/icons && cp icons/*.png dist/icons/ && cp options/index.html options/options.css dist/options/",
+    "build": "tsc && mkdir -p dist/icons && cp icons/*.png dist/icons/ && cp options/index.html options/options.css dist/options/",
     "build-manifest-chrome": "node manifest.js chrome > dist/manifest.json",
     "build-manifest-firefox": "node manifest.js firefox > dist/manifest.json",
     "build-chrome": "pnpm build && pnpm build-manifest-chrome",
