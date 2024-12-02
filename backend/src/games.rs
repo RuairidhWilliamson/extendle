@@ -185,11 +185,6 @@ pub const GAME_LIST: &GameList = &GameList {
             url: "https://www.minutecryptic.com/",
         },
         Game {
-            id: "leetcode",
-            label: "Leetcode",
-            url: "https://leetcode.com/problemset/",
-        },
-        Game {
             id: "lichess",
             label: "Lichess Puzzle",
             url: "https://lichess.org/training/daily",
@@ -225,9 +220,64 @@ pub const GAME_LIST: &GameList = &GameList {
             url: "https://www.geogridgame.com",
         },
         Game {
-            id: "echo-chess",
+            id: "echo_chess",
             label: "Echo Chess",
             url: "https://echochess.com/game?game_mode=DAILY&level_type=CLASSIC",
+        },
+        Game {
+            id: "woodle",
+            label: "Woodle",
+            url: "https://play.woodle.today",
+        },
+        Game {
+            id: "waffle",
+            label: "Waffle",
+            url: "https://wafflegame.net/daily",
+        },
+        Game {
+            id: "3fall",
+            label: "3 Fall",
+            url: "https://3fallpuzzle.com",
+        },
+        Game {
+            id: "gramjam",
+            label: "Gram Jam",
+            url: "https://www.gramjam.app",
+        },
+        Game {
+            id: "spelling_bee",
+            label: "Spelling Bee",
+            url: "https://www.nytimes.com/puzzles/spelling-bee",
+        },
+        Game {
+            id: "mini_crossword",
+            label: "Mini Crossword",
+            url: "https://www.nytimes.com/crosswords/game/mini",
+        },
+        Game {
+            id: "upwordle",
+            label: "Upwordly",
+            url: "https://www.puzzlesociety.com/word-scrambles/upwordly",
+        },
+        Game {
+            id: "worchle",
+            label: "Worchle",
+            url: "https://www.worchle.com",
+        },
+        Game {
+            id: "synonym_circuit",
+            label: "Synonym Circuit",
+            url: "https://www.synonymcircuit.com",
+        },
+        Game {
+            id: "guessle",
+            label: "Guessle",
+            url: "https://guessle.io",
+        },
+        Game {
+            id: "karat",
+            label: "Karat",
+            url: "https://karat.auronymous.com",
         },
     ],
 };
