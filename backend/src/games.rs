@@ -207,7 +207,7 @@ pub const GAME_LIST: &GameList = &GameList {
         Game {
             id: "imdb250",
             label: "IMDB 250",
-            url: "https://250imdbguess.streamlit.app/",
+            url: "https://jordansp99.github.io/imdb250react/",
         },
         Game {
             id: "movie_to_movie",
@@ -278,6 +278,16 @@ pub const GAME_LIST: &GameList = &GameList {
             id: "karat",
             label: "Karat",
             url: "https://karat.auronymous.com",
+        },
+        Game {
+            id: "whentake_movies",
+            label: "Whentaken Movies",
+            url: "https://movies.whentaken.com/game/summary",
+        },
+        Game {
+            id: "timeguessr",
+            label: "Timeguessr",
+            url: "https://timeguessr.com/roundonedaily",
         },
     ],
 };
