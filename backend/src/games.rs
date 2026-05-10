@@ -289,6 +289,11 @@ pub const GAME_LIST: &GameList = &GameList {
             label: "Timeguessr",
             url: "https://timeguessr.com/roundonedaily",
         },
+        Game {
+            id: "metazooa",
+            label: "Metazooa",
+            url: "https://metazooa.com/play/game",
+        },
     ],
 };
 
