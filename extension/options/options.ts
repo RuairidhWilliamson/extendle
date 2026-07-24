@@ -15,7 +15,7 @@ interface GameList {
 
 const games_promise = (async () => {
   const resp = await fetch(
-    "https://github.com/RuairidhWilliamson/extendle/blob/main/backend/games.json",
+    "https://raw.githubusercontent.com/RuairidhWilliamson/extendle/refs/heads/main/backend/games.json",
   );
   const games_list: GameList = await resp.json();
   return games_list;
