@@ -1,0 +1,284 @@
+{
+  "games": [
+    {
+      "id": "crossword",
+      "label": "Universal Crossword",
+      "url": "https://www.theglobeandmail.com/puzzles-and-crosswords/universal-crossword/"
+    },
+    {
+      "id": "wordle",
+      "label": "Wordle",
+      "url": "https://www.nytimes.com/games/wordle/index.html"
+    },
+    {
+      "id": "worldle",
+      "label": "Worldle",
+      "url": "https://worldle.teuteuf.fr"
+    },
+    {
+      "id": "travle",
+      "label": "Travle",
+      "url": "https://travle.earth"
+    },
+    {
+      "id": "wheretaken",
+      "label": "WhereTaken",
+      "url": "https://wheretaken.teuteuf.fr"
+    },
+    {
+      "id": "wheretakenusa",
+      "label": "WhereTakenUSA",
+      "url": "https://wheretakenusa.teuteuf.fr"
+    },
+    {
+      "id": "statele",
+      "label": "Statele",
+      "url": "https://statele.teuteuf.fr/"
+    },
+    {
+      "id": "flagle",
+      "label": "Flagle",
+      "url": "https://www.flagle.io"
+    },
+    {
+      "id": "framed",
+      "label": "Framed",
+      "url": "https://framed.wtf"
+    },
+    {
+      "id": "episode",
+      "label": "Episode",
+      "url": "https://episode.wtf"
+    },
+    {
+      "id": "pimantle",
+      "label": "Pimantle",
+      "url": "https://semantle.pimanrul.es"
+    },
+    {
+      "id": "moviedle",
+      "label": "Moviedle",
+      "url": "https://moviedle.xyz"
+    },
+    {
+      "id": "arcade_moviedle",
+      "label": "Moviedle",
+      "url": "https://www.moviedle.app"
+    },
+    {
+      "id": "semantle_junior",
+      "label": "Semantle Junior",
+      "url": "https://semantle.com/junior"
+    },
+    {
+      "id": "semantle",
+      "label": "Semantle",
+      "url": "https://semantle.com"
+    },
+    {
+      "id": "plotwords",
+      "label": "Plotwords",
+      "url": "https://plotwords.com"
+    },
+    {
+      "id": "rankdle",
+      "label": "Rankdle",
+      "url": "https://rankdle.com"
+    },
+    {
+      "id": "word_connection",
+      "label": "Word Connection",
+      "url": "https://www.thewordfinder.com/word-connection/"
+    },
+    {
+      "id": "quordle",
+      "label": "Quordle",
+      "url": "https://www.merriam-webster.com/games/quordle/"
+    },
+    {
+      "id": "redactle",
+      "label": "Redactle",
+      "url": "https://redactle.net/"
+    },
+    {
+      "id": "globle",
+      "label": "Globle",
+      "url": "https://globle.org/"
+    },
+    {
+      "id": "feudle",
+      "label": "Feudle",
+      "url": "https://googlefeud.com/feudle/"
+    },
+    {
+      "id": "minecraftle",
+      "label": "Minecraftle",
+      "url": "https://minecraftle.zachmanson.com/"
+    },
+    {
+      "id": "errordle",
+      "label": "Errordle",
+      "url": "https://bluej.org/errordle/"
+    },
+    {
+      "id": "myrtle",
+      "label": "Myrtle",
+      "url": "https://myrtle.harrypotterwordle.com/"
+    },
+    {
+      "id": "riddlele",
+      "label": "Riddlele",
+      "url": "https://phonenumble.com/riddlele/"
+    },
+    {
+      "id": "tuble",
+      "label": "Tuble",
+      "url": "https://tuble.co.uk/"
+    },
+    {
+      "id": "wordosis",
+      "label": "Wordosis",
+      "url": "https://www.medpagetoday.com/wordosis"
+    },
+    {
+      "id": "whentaken",
+      "label": "WhenTaken",
+      "url": "https://whentaken.com/"
+    },
+    {
+      "id": "connections",
+      "label": "Connections",
+      "url": "https://www.nytimes.com/connections"
+    },
+    {
+      "id": "faces",
+      "label": "Faces",
+      "url": "https://faces.wtf/"
+    },
+    {
+      "id": "deciper",
+      "label": "Decipher",
+      "url": "https://decipher.wtf/"
+    },
+    {
+      "id": "horsle",
+      "label": "Horsle",
+      "url": "https://horsle.glitch.me/"
+    },
+    {
+      "id": "minute_cryptic",
+      "label": "Minute Cryptic",
+      "url": "https://www.minutecryptic.com/"
+    },
+    {
+      "id": "lichess",
+      "label": "Lichess Puzzle",
+      "url": "https://lichess.org/training/daily"
+    },
+    {
+      "id": "factle",
+      "label": "Factle",
+      "url": "https://trivia.frontofficesports.com"
+    },
+    {
+      "id": "joined_words",
+      "label": "Joined Words",
+      "url": "https://jw-daily.web.app"
+    },
+    {
+      "id": "boardle",
+      "label": "Boardle",
+      "url": "https://playboardle.com/"
+    },
+    {
+      "id": "imdb250",
+      "label": "IMDB 250",
+      "url": "https://jordansp99.github.io/imdb250react/"
+    },
+    {
+      "id": "movie_to_movie",
+      "label": "Movie to Movie",
+      "url": "https://movietomovie.com"
+    },
+    {
+      "id": "geogrid",
+      "label": "Geogrid",
+      "url": "https://www.geogridgame.com"
+    },
+    {
+      "id": "echo_chess",
+      "label": "Echo Chess",
+      "url": "https://echochess.com/game?game_mode=DAILY&level_type=CLASSIC"
+    },
+    {
+      "id": "woodle",
+      "label": "Woodle",
+      "url": "https://play.woodle.today"
+    },
+    {
+      "id": "waffle",
+      "label": "Waffle",
+      "url": "https://wafflegame.net/daily"
+    },
+    {
+      "id": "3fall",
+      "label": "3 Fall",
+      "url": "https://3fallpuzzle.com"
+    },
+    {
+      "id": "gramjam",
+      "label": "Gram Jam",
+      "url": "https://www.gramjam.app"
+    },
+    {
+      "id": "spelling_bee",
+      "label": "Spelling Bee",
+      "url": "https://www.nytimes.com/puzzles/spelling-bee"
+    },
+    {
+      "id": "mini_crossword",
+      "label": "Mini Crossword",
+      "url": "https://www.nytimes.com/crosswords/game/mini"
+    },
+    {
+      "id": "upwordle",
+      "label": "Upwordly",
+      "url": "https://www.puzzlesociety.com/word-scrambles/upwordly"
+    },
+    {
+      "id": "worchle",
+      "label": "Worchle",
+      "url": "https://www.worchle.com"
+    },
+    {
+      "id": "synonym_circuit",
+      "label": "Synonym Circuit",
+      "url": "https://www.synonymcircuit.com"
+    },
+    {
+      "id": "guessle",
+      "label": "Guessle",
+      "url": "https://guessle.io"
+    },
+    {
+      "id": "karat",
+      "label": "Karat",
+      "url": "https://karat.auronymous.com"
+    },
+    {
+      "id": "whentake_movies",
+      "label": "Whentaken Movies",
+      "url": "https://movies.whentaken.com/game/summary"
+    },
+    {
+      "id": "timeguessr",
+      "label": "Timeguessr",
+      "url": "https://timeguessr.com/roundonedaily"
+    },
+    {
+      "id": "metazooa",
+      "label": "Metazooa",
+      "url": "https://metazooa.com/play/game"
+    }
+  ]
+}
