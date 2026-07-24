@@ -4,26 +4,28 @@ const defaultRandomList: Array<string> = [];
 const defaultRandomCount: number = 2;
 
 interface Game {
-  id: string,
-  label: string,
-  url: string,
-};
+  id: string;
+  label: string;
+  url: string;
+}
 
 interface GameList {
-  games: Array<Game>,
-};
+  games: Array<Game>;
+}
 
 const games_promise = (async () => {
-  const resp = await fetch("https://extendle-backend-oa3c2clcza-ez.a.run.app/games");
+  const resp = await fetch(
+    "https://github.com/RuairidhWilliamson/extendle/blob/main/backend/games.json",
+  );
   const games_list: GameList = await resp.json();
   return games_list;
 })();
 
 interface Settings {
-  activeList: Array<string>,
-  randomList: Array<string>,
-  randomCount: number,
-};
+  activeList: Array<string>;
+  randomList: Array<string>;
+  randomCount: number;
+}
 
 const defaultSettings: Settings = {
   activeList: ["wordle"],
@@ -47,14 +49,18 @@ const getSettings = async (): Promise<Settings> => {
 };
 
 const saveSettings = async (settings: Settings) => {
-  await brx.storage.sync.set({ "settings": settings });
+  await brx.storage.sync.set({ settings: settings });
 };
 
 const openAll = async () => {
   const settings: Settings = await getSettings();
 
   const chosenRandomList: Array<string> = [];
-  for (let i = 0; i < settings.randomCount && settings.randomList.length > 0; i++) {
+  for (
+    let i = 0;
+    i < settings.randomCount && settings.randomList.length > 0;
+    i++
+  ) {
     const index = Math.floor(Math.random() * settings.randomList.length);
     const [element] = settings.randomList.splice(index, 1);
     chosenRandomList.push(element);
@@ -72,15 +78,15 @@ const openAll = async () => {
     createOptions.discarded = true;
   }
   const games = await games_promise;
-  combinedList.forEach(id => {
-    const game = games.games.find(g => g.id === id);
+  combinedList.forEach((id) => {
+    const game = games.games.find((g) => g.id === id);
     if (game === undefined) {
       return;
     }
     const url = game.url;
     brx.tabs.create({
       url,
-      ...createOptions
+      ...createOptions,
     });
   });
 };
@@ -117,9 +123,9 @@ const init = async () => {
     list.append(draggingItem!);
   };
 
-  [activeListElem, randomListElem, inactiveListElem].forEach(list => {
-    list.addEventListener("dragover", ev => dragUpdate(list, ev));
-    list.addEventListener("dragenter", ev => dragUpdate(list, ev));
+  [activeListElem, randomListElem, inactiveListElem].forEach((list) => {
+    list.addEventListener("dragover", (ev) => dragUpdate(list, ev));
+    list.addEventListener("dragenter", (ev) => dragUpdate(list, ev));
   });
 
   const createRow = (game: Game) => {
@@ -127,7 +133,7 @@ const init = async () => {
     row.classList.add("game-row");
     row.draggable = false;
     row.setAttribute("gameid", game.id);
-    row.addEventListener("dragstart", ev => {
+    row.addEventListener("dragstart", (ev) => {
       ev.dataTransfer!.setData("text/uri-list", game.url);
       ev.dataTransfer!.setData("text/plain", game.url);
       (<HTMLElement>ev.target).classList.add("dragging");
@@ -159,7 +165,8 @@ const init = async () => {
       row.draggable = false;
     });
     const icon = document.createElement("img");
-    icon.src = "https://s2.googleusercontent.com/s2/favicons?domain_url=" + game.url;
+    icon.src =
+      "https://s2.googleusercontent.com/s2/favicons?domain_url=" + game.url;
     const label = document.createElement("a");
     label.innerText = game.label;
     const openLink = document.createElement("a");
@@ -173,22 +180,25 @@ const init = async () => {
     return row;
   };
   const games = await games_promise;
-  settings.activeList.forEach(game_id => {
-    const game = games.games.find(g => g.id === game_id);
+  settings.activeList.forEach((game_id) => {
+    const game = games.games.find((g) => g.id === game_id);
     if (game === undefined) {
       return;
     }
     activeListElem.append(createRow(game));
   });
-  settings.randomList.forEach(game_id => {
-    const game = games.games.find(g => g.id === game_id);
+  settings.randomList.forEach((game_id) => {
+    const game = games.games.find((g) => g.id === game_id);
     if (game === undefined) {
       return;
     }
     randomListElem.append(createRow(game));
   });
-  games.games.forEach(game => {
-    if (!settings.activeList.includes(game.id) && !settings.randomList.includes(game.id)) {
+  games.games.forEach((game) => {
+    if (
+      !settings.activeList.includes(game.id) &&
+      !settings.randomList.includes(game.id)
+    ) {
       inactiveListElem.append(createRow(game));
     }
   });
